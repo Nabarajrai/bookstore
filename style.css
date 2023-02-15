@@ -198,7 +198,42 @@ img {
   max-width: 500px;
   border: none;
 } */
-
+.card-main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--white);
+}
+.card-image {
+  width: 40%;
+  margin: auto 10px;
+}
+.card-image figure img {
+  width: 100%;
+}
+.card-description {
+  width: 60%;
+  padding: 1.2rem;
+}
+.card-description h3 {
+  margin: 10px 0px;
+  font-size: 13px;
+}
+.card-search {
+  width: 80%;
+}
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+.d-none {
+  display: none;
+}
+#loding {
+  display: none;
+}
 @media only screen and (max-width: 904px) {
   .search-title {
     max-width: unset;
