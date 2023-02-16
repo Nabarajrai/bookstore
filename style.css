@@ -95,6 +95,7 @@ span {
   align-items: center;
   border-radius: 5px;
   margin-top: var(--margin-top-1);
+  font-size: 11px;
 }
 .search:hover {
   background: #318cc0;
@@ -218,7 +219,7 @@ img {
 }
 .card-description h3 {
   margin: 10px 0px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .card-search {
   width: 80%;
