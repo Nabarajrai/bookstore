@@ -43,7 +43,7 @@ ul li {
 }
 ul li a {
   color: var(--primary-text-color);
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 a {
   text-decoration: none;
@@ -78,7 +78,7 @@ span {
   line-height: var(--line-height-1);
 }
 .paragraph {
-  font-size: 1.2rem;
+  font-size: 1.04rem;
   line-height: var(--line-height-2);
   margin-top: var(--margin-top-1);
 }
