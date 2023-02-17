@@ -3,6 +3,8 @@ const card = document.querySelector(".card");
 const button = document.querySelector("#button");
 const cards = document.getElementById("card");
 const id2 = document.getElementById("2");
+const id1 = document.getElementById("1");
+const descrip = document.getElementById("des");
 
 window.onload = () => {
   cards.classList.add("d-none");
@@ -53,6 +55,7 @@ const displayData = data => {
       const publisher = data.volumeInfo.publisher
         ? data.volumeInfo.publisher
         : "Unknown";
+      const id = data.id;
       html += `
               <section class="card-main">
               <div class="card-image">
@@ -65,7 +68,7 @@ const displayData = data => {
               <h3>Published Date : <span>${date}</span></h3>
               <h3>Publisher : <span>${publisher}</span></h3>
               <div>
-              <a class="search card-search" onclick="detail(title)">
+              <a class="search card-search"  data-id="${id}">
               Moreinfo
               <i
                 class="fa fa-long-arrow-right"
@@ -82,10 +85,56 @@ const displayData = data => {
   }, 500);
 };
 
-function detail(pub) {
-  search();
-  console.log("url", pub);
+function detail(id) {
+  console.log("url", id);
 }
+const displayDetails = async id => {
+  let html = "";
+  const reponses = await fetch(
+    `https://www.googleapis.com/books/v1/volumes/${id}`
+  );
+  const data = await reponses.json();
+  const title = data.volumeInfo.title;
+  const thumbnail = data.volumeInfo.imageLinks.thumbnail
+    ? data.volumeInfo.imageLinks.thumbnail
+    : "https://via.placeholder.com/128x196?text=No+Image";
+  const date = data.volumeInfo.publishedDate
+    ? data.volumeInfo.publishedDate
+    : "Unknown";
+  const publisher = data.volumeInfo.publisher
+    ? data.volumeInfo.publisher
+    : "Unknown";
+  const description = data.volumeInfo.description
+    ? data.volumeInfo.description
+    : "No info";
+  console.log("data", data);
+  html += `<section class="d-flex d-justify">
+    <div class="image-section">
+    <h2>${title}</h2>
+    <div class="card-image">
+    <figure>
+    <img src=${thumbnail} />
+    </figure>
+    </div>
+    <h3>Published Date : <span>${date}</span></h3>
+    <h3>Publisher : <span>${publisher}</span></h3>
+    </div>
+    <div class="des-section">
+    <p>${description}</p>
+    </div>
+  </section>`;
+  descrip.innerHTML = html;
+};
+
+card.addEventListener("click", e => {
+  console.log("event", e.target.tagName);
+  if (e.target.tagName === "A") {
+    const id = e.target.getAttribute("data-id");
+    id1.classList.add("d-none");
+    id2.classList.remove("d-none");
+    displayDetails(id);
+  }
+});
 input.addEventListener("keyup", searchBook);
 input.addEventListener("keypress", e => {
   if (e.key === "Enter") {

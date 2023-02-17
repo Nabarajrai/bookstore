@@ -236,6 +236,39 @@ img {
 #loding {
   display: none;
 }
+.image-section {
+  width: 40%;
+  max-width: 500px;
+  background-color: var(--white);
+  padding: 30px 20px;
+  box-shadow: 1px 1px 1px 1px #cccc;
+}
+.image-section:hover {
+  box-shadow: 2px 2px 2px 3px #cccc;
+}
+.image-section h2 {
+  margin: 27px 9px;
+  font-size: 2.5rem;
+}
+.image-section h3 {
+  margin: 20px 10px;
+  font-size: 1.1rem;
+}
+.des-section {
+  width: 55%;
+  padding: 50px 30px;
+  background-color: var(--white);
+  box-shadow: 1px 1px 1px 2px #cccc;
+}
+.des-section:hover {
+  box-shadow: 2px 2px 2px 3px #cccc;
+}
+.d-justify {
+  justify-content: space-between;
+}
+.des-section p {
+  line-height: 1.2;
+}
 @media only screen and (max-width: 904px) {
   .search-title {
     max-width: unset;
@@ -295,6 +328,16 @@ img {
   }
   .des-left {
     margin: 31px 1px;
+  }
+  .mains .container {
+    max-width: 100%;
+  }
+  .image-section {
+    width: 100%;
+  }
+  .des-section {
+    width: 100%;
+    margin-top: 40px;
   }
 }
 @media only screen and (max-width: 480px) {
