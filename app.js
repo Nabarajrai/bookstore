@@ -160,7 +160,7 @@ card.addEventListener("click", e => {
     id1.classList.add("d-none");
     id2.classList.remove("d-none");
     displayDetails(id);
-    setCookieMinuts("STEP", 2, 9);
+    setCookieMinuts("STEP", 2, 1);
   }
 });
 function setCookieMinuts(name, value, minuts) {
@@ -194,6 +194,7 @@ buttons.addEventListener("click", () => {
   deleteAllCookies();
   id2.classList.add("d-none");
   id1.classList.remove("d-none");
+  window.localStorage.removeItem("descriptions");
 });
 input.addEventListener("keyup", searchBook);
 input.addEventListener("keypress", e => {
