@@ -6,7 +6,6 @@ const id2 = document.getElementById("2");
 const id1 = document.getElementById("1");
 const descrip = document.getElementById("des");
 const buttons = document.getElementById("buttons");
-
 window.onload = () => {
   cards.classList.add("d-none");
   id2.classList.add("d-none");
@@ -14,6 +13,9 @@ window.onload = () => {
   if (getCookie("STEP") == 2) {
     id1.classList.add("d-none");
     id2.classList.remove("d-none");
+  } else if (getCookie("STEP") == "undefined") {
+    id1.classList.remove("d-none");
+    id2.classList.add("d-none");
   }
   const displaydes = JSON.parse(window.localStorage.getItem("descriptions"));
   const { title, thumbnail, date, publisher, description } = displaydes;
