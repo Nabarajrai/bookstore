@@ -47,6 +47,7 @@ ul li a {
 }
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 .logo a {
   color: var(--secondary-text-color);
@@ -225,9 +226,9 @@ img {
 .card-search {
   width: 80%;
 }
-.d-grid {
+.d-grids {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
   grid-gap: 20px;
 }
 .d-none {
@@ -270,6 +271,9 @@ img {
   line-height: 1.2;
 }
 @media only screen and (max-width: 904px) {
+  .d-grids {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
   .search-title {
     max-width: unset;
     text-align: center !important;
@@ -343,5 +347,8 @@ img {
 @media only screen and (max-width: 480px) {
   html {
     font-size: 70%;
+  }
+  .d-grids {
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
   }
 }
